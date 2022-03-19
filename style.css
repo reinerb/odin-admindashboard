@@ -1,5 +1,5 @@
 :root {
-  --clr-primary-200: #99f6e4;
+  --clr-primary-50: #f0fdfa;
   --clr-primary-500: #14b8a6;
   --clr-primary-700: #0f766e;
   --clr-accent-500: #ec4899;
@@ -45,6 +45,7 @@ nav {
   font-size: 1.25rem;
   color: var(--clr-neutral-50);
   line-height: 2;
+  z-index: 3;
 }
 
 nav > *:not(:first-child) {
@@ -92,9 +93,111 @@ nav a > img {
 header {
   grid-area: header;
   background-color: var(--clr-neutral-50);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  box-shadow: -0.125rem 0 0.5rem var(--clr-neutral-500);
+  z-index: 2;
+}
+
+.search-bar {
+  font-size: 1.25rem;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5em;
+}
+
+.search-bar > img {
+  aspect-ratio: 1;
+  max-height: 2em;
+}
+
+.search-bar > input {
+  font-size: inherit;
+  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 100vh;
+  background-color: var(--clr-neutral-200);
+}
+
+.user-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  gap: 2em;
+  margin-right: 10%;
+}
+
+.user-info > img {
+  aspect-ratio: 1;
+  max-width: 1.5em;
+}
+
+.greeting {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.125rem;
+}
+
+.greeting > .profile-photo {
+  grid-row: 1 / span 2;
+  max-height: 4.5rem;
+}
+
+.greeting > p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  grid-column: 2;
+  margin-left: 1rem;
+  align-self: flex-end;
+}
+
+.greeting > .username {
+  font-size: 1.5rem;
+  align-self: flex-start;
+  font-weight: 900;
+}
+
+.profile-photo {
+  aspect-ratio: 1;
+  object-fit: cover;
+  max-height: 2em;
+  border-radius: 100vh;
+}
+
+.file-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: inherit;
+}
+
+.file-buttons > button {
+  cursor: pointer;
+  border: 2px solid var(--clr-primary-500);
+  font-size: 1.125rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--clr-neutral-50);
+  min-width: 10ch;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--clr-primary-500);
+  border-radius: 100vh;
+}
+
+.file-buttons > button:hover {
+  border-color: var(--clr-primary-700);
+}
+
+.file-buttons > button:active {
+  background-color: var(--clr-neutral-50);
+  color: var(--clr-primary-700);
 }
 
 main {
   grid-area: main;
-  background-color: var(--clr-neutral-200);
+  background-color: var(--clr-primary-50);
 }
