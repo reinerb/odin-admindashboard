@@ -8,6 +8,7 @@
   --clr-neutral-500: #555555;
   --clr-neutral-900: #000000;
   --body-font: "Lato", sans-serif;
+  --card-border-radius: 0.5rem;
 }
 
 * {
@@ -17,6 +18,11 @@
 
 ul {
   list-style: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
 }
 
 html {
@@ -147,18 +153,19 @@ header {
   max-height: 4.5rem;
 }
 
+.greeting > :not(img) {
+  grid-column: 2;
+  margin-left: 1rem;
+}
+
 .greeting > p {
   font-size: 0.8rem;
   font-weight: 600;
-  grid-column: 2;
-  margin-left: 1rem;
   align-self: flex-end;
 }
 
 .greeting > .username {
-  font-size: 1.5rem;
   align-self: flex-start;
-  font-weight: 900;
 }
 
 .profile-photo {
@@ -200,4 +207,93 @@ header {
 main {
   grid-area: main;
   background-color: var(--clr-primary-50);
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: auto max-content;
+  gap: 0.5rem;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending";
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+  gap: 0.5rem;
+}
+
+.projects > h2 {
+  grid-column: 1 / -1;
+}
+
+.card {
+  height: 200px;
+  background-color: var(--clr-neutral-50);
+  border-left: 0.5rem solid var(--clr-accent-500);
+  border-radius: var(--card-border-radius);
+  padding: 1.25em;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+}
+
+.card > h3 {
+  font-size: 1.1rem;
+}
+
+.card > p {
+  color: var(--clr-neutral-500);
+}
+
+.card-icons {
+  flex-grow: 1;
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 2em);
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.card-icons > img {
+  aspect-ratio: 1;
+  max-width: 2em;
+  cursor: pointer;
+}
+
+.announcements {
+  grid-area: announcements;
+  max-width: 40ch;
+}
+
+.trending-users {
+  grid-area: trending;
+}
+
+.announcement {
+  padding: 1rem 0rem;
+}
+
+.announcement h3 {
+  font-size: 1.1rem;
+}
+
+.announcement p {
+  font-size: 0.8rem;
+  color: var(--clr-neutral-500);
+}
+
+.announcement:not(:last-child) {
+  border-bottom: 1px solid var(--clr-neutral-500);
+}
+
+.announcements-content,
+.trending-container {
+  background: var(--clr-neutral-50);
+  padding: 1rem 2rem;
+  border-radius: var(--card-border-radius);
 }
